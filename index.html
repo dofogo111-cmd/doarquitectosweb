@@ -1,117 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Planos de Arquitectura | DO Arquitectos</title>
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DO Arquitectos</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- NAVBAR -->
-  <header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">DO Arquitectos</h1>
-      <nav class="space-x-6 text-lg">
-        <a href="#inicio" class="hover:text-blue-600">Inicio</a>
-        <a href="#planos" class="hover:text-blue-600">Planos</a>
-        <a href="#contacto" class="hover:text-blue-600">Contacto</a>
-      </nav>
-    </div>
+<body>
+  <header>
+    <h1>DO Arquitectos</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Contacto</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="inicio" class="pt-32 pb-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Planos de Arquitectura Modernos y Profesionales</h2>
-      <p class="text-lg text-gray-600 mb-8">
-        Compra planos listos, visualiza modelos 3D y descarga la planimetría en alta resolución.
-      </p>
-      <a href="#planos" class="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700">Ver Catálogo</a>
-    </div>
-  </section>
+  <main>
+    <section id="catalogo"></section>
+  </main>
 
-  <!-- CATÁLOGO DE PLANOS -->
-  <section id="planos" class="py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-10 text-center">Catálogo de Planos</h3>
-
-      <div class="grid md:grid-cols-3 gap-10" id="catalogo">
-        
-        <!-- CARD 1 -->
-        <div class="bg-white rounded-xl shadow p-4">
-          <img src="https://placehold.co/600x400" alt="Plano Casa Moderna" class="rounded-lg mb-4" />
-          <h4 class="text-xl font-semibold mb-2">Casa Moderna 120 m²</h4>
-          <p class="text-gray-600 text-sm mb-4">3 dormitorios · 2 baños · Concepto abierto</p>
-          <a href="#" class="text-blue-600 underline block mb-3">Ver modelo 3D</a>
-          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            onclick="agregarCarrito('Casa Moderna 120 m²')">Añadir al carro</button>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="bg-white rounded-xl shadow p-4">
-          <img src="https://placehold.co/600x400" alt="Plano Casa Minimalista" class="rounded-lg mb-4" />
-          <h4 class="text-xl font-semibold mb-2">Casa Minimalista 90 m²</h4>
-          <p class="text-gray-600 text-sm mb-4">2 dormitorios · 2 baños · Diseño eficiente</p>
-          <a href="#" class="text-blue-600 underline block mb-3">Ver modelo 3D</a>
-          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            onclick="agregarCarrito('Casa Minimalista 90 m²')">Añadir al carro</button>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="bg-white rounded-xl shadow p-4">
-          <img src="https://placehold.co/600x400" alt="Plano Casa Familiar" class="rounded-lg mb-4" />
-          <h4 class="text-xl font-semibold mb-2">Casa Familiar 150 m²</h4>
-          <p class="text-gray-600 text-sm mb-4">4 dormitorios · 3 baños · Ideal para familias grandes</p>
-          <a href="#" class="text-blue-600 underline block mb-3">Ver modelo 3D</a>
-          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            onclick="agregarCarrito('Casa Familiar 150 m²')">Añadir al carro</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CARRITO SIMPLIFICADO -->
-  <section class="py-10 bg-white border-t">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-4">Carrito</h3>
-      <ul id="carrito" class="list-disc pl-6 text-gray-700"></ul>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-6">Contacto</h3>
-      <p class="text-gray-600 mb-4">¿Necesitas un plano personalizado? Escríbenos.</p>
-      <a href="mailto:contacto@doarquitectos.com" class="text-blue-600 text-lg underline">contacto@doarquitectos.com</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-gray-500 text-sm">
-    © 2025 DO Arquitectos · Todos los derechos reservados
-  </footer>
-
-  <!-- JAVASCRIPT -->
-  <script>
-    const carrito = [];
-
-    function agregarCarrito(nombrePlano) {
-      carrito.push(nombrePlano);
-      renderCarrito();
-    }
-
-    function renderCarrito() {
-      const lista = document.getElementById('carrito');
-      lista.innerHTML = '';
-      carrito.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        lista.appendChild(li);
-      });
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

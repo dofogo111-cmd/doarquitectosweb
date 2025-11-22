@@ -1,0 +1,12 @@
+[
+  {
+    "nombre": "Plano Casa 60m²",
+    "descripcion": "Ideal para familias pequeñas.",
+    "precio": 45000
+  },
+  {
+    "nombre": "Plano Casa 90m²",
+    "descripcion": "Diseño moderno y eficiente.",
+    "precio": 65000
+  }
+]
