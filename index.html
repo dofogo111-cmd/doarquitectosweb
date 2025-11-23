@@ -1,25 +1,253 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DO Arquitectos</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>DO Arquitectos</h1>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Catálogo</a>
-      <a href="#">Contacto</a>
-    </nav>
-  </header>
+import React, { useState } from 'react';
+import { Home, Mail, Phone, MapPin, Check, ArrowRight } from 'lucide-react';
 
-  <main>
-    <section id="catalogo"></section>
-  </main>
+export default function DOArquitectos() {
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
-  <script src="app.js"></script>
-</body>
-</html>
+  const planes = [
+    {
+      id: 1,
+      nombre: "Casa Compacta",
+      tamaño: "80m²",
+      habitaciones: 2,
+      baños: 1,
+      precio: "$299",
+      descripcion: "Diseño eficiente perfecto para parejas jóvenes o pequeñas familias. Maximiza cada metro cuadrado con inteligencia.",
+      caracteristicas: ["Cocina integrada", "Sala-comedor", "Patio trasero", "Estacionamiento"]
+    },
+    {
+      id: 2,
+      nombre: "Casa Familiar",
+      tamaño: "120m²",
+      habitaciones: 3,
+      baños: 2,
+      precio: "$449",
+      descripcion: "Espacios amplios y funcionales para el confort familiar. Diseño contemporáneo con excelente distribución.",
+      caracteristicas: ["Cocina independiente", "Sala y comedor", "Jardín", "2 Estacionamientos"]
+    },
+    {
+      id: 3,
+      nombre: "Casa Moderna",
+      tamaño: "150m²",
+      habitaciones: 3,
+      baños: 2.5,
+      precio: "$599",
+      descripcion: "Arquitectura vanguardista con líneas limpias. Perfecta integración entre espacios interiores y exteriores.",
+      caracteristicas: ["Cocina gourmet", "Sala de estar", "Terraza", "Estudio", "2 Estacionamientos"]
+    },
+    {
+      id: 4,
+      nombre: "Casa Ejecutiva",
+      tamaño: "200m²",
+      habitaciones: 4,
+      baños: 3,
+      precio: "$799",
+      descripcion: "Elegancia y funcionalidad en cada detalle. Diseñada para quienes buscan espacios amplios y sofisticados.",
+      caracteristicas: ["Cocina isla", "Sala doble altura", "Terraza techada", "Walk-in closet", "3 Estacionamientos"]
+    },
+    {
+      id: 5,
+      nombre: "Casa Premium",
+      tamaño: "250m²",
+      habitaciones: 4,
+      baños: 3.5,
+      precio: "$999",
+      descripcion: "Lujo y confort sin compromisos. Espacios generosos con acabados de primera calidad en su diseño.",
+      caracteristicas: ["Cocina gourmet", "Sala de TV", "Quincho", "Suite principal", "Piscina", "3 Estacionamientos"]
+    },
+    {
+      id: 6,
+      nombre: "Casa de Ensueño",
+      tamaño: "320m²",
+      habitaciones: 5,
+      baños: 4,
+      precio: "$1,299",
+      descripcion: "La máxima expresión de diseño arquitectónico. Ideal para familias que buscan exclusividad y amplitud total.",
+      caracteristicas: ["2 Cocinas", "Home theater", "Gimnasio", "Bodega vinos", "Piscina grande", "4 Estacionamientos"]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header/Navbar */}
+      <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-2">
+              <Home className="h-8 w-8 text-blue-600" />
+              <span className="text-2xl font-bold text-gray-800">DO ARQUITECTOS</span>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#inicio" className="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+              <a href="#catalogo" className="text-gray-700 hover:text-blue-600 transition">Catálogo</a>
+              <a href="#contacto" className="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="inicio" className="pt-24 pb-16 relative text-white">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{backgroundImage: 'url(images/hero-background.jpg)'}}
+        />
+        <div className="absolute inset-0 bg-blue-900 bg-opacity-70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Diseña el Hogar de tus Sueños
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Planos arquitectónicos profesionales listos para construir
+            </p>
+            <a href="#catalogo" className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition shadow-lg">
+              Ver Catálogo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Características */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Diseños Profesionales</h3>
+              <p className="text-gray-600">Planos elaborados por arquitectos certificados con años de experiencia</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Listos para Construir</h3>
+              <p className="text-gray-600">Planos completos con todos los detalles técnicos necesarios</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Entrega Inmediata</h3>
+              <p className="text-gray-600">Recibe tus planos digitales al instante después de la compra</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catálogo */}
+      <section id="catalogo" className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Nuestro Catálogo</h2>
+            <p className="text-xl text-gray-600">Encuentra el diseño perfecto para tu proyecto</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {planes.map((plan) => (
+              <div 
+                key={plan.id} 
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition transform hover:scale-105 cursor-pointer"
+                onClick={() => setSelectedPlan(plan)}
+              >
+                <div className="aspect-square relative bg-gradient-to-br from-blue-400 to-blue-600">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <Home className="h-12 w-12 text-white opacity-40 mb-2" />
+                    <h3 className="text-lg font-bold text-white mb-1 text-center">{plan.nombre}</h3>
+                    <div className="text-xs text-white mb-2">
+                      <span className="font-semibold">{plan.tamaño}</span>
+                    </div>
+                    <div className="text-xs text-white opacity-90 mb-3">
+                      {plan.habitaciones} hab • {plan.baños} baños
+                    </div>
+                    <span className="text-2xl font-bold text-white">{plan.precio}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto */}
+      <section id="contacto" className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
+            <p className="text-xl text-gray-600">Estamos aquí para ayudarte con tu proyecto</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <Mail className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p className="text-gray-600">contacto@doarquitectos.com</p>
+            </div>
+            <div>
+              <Phone className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Teléfono</h3>
+              <p className="text-gray-600">+56 9 1234 5678</p>
+            </div>
+            <div>
+              <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Ubicación</h3>
+              <p className="text-gray-600">Santiago, Chile</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-400">© 2024 DO ARQUITECTOS. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+
+      {/* Modal de Detalle */}
+      {selectedPlan && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedPlan(null)}>
+          <div className="bg-white rounded-lg max-w-2xl w-full p-8" onClick={(e) => e.stopPropagation()}>
+            <h2 className="text-3xl font-bold mb-4">{selectedPlan.nombre}</h2>
+            <div className="flex items-center space-x-4 mb-4">
+              <span className="text-xl font-semibold text-blue-600">{selectedPlan.tamaño}</span>
+              <span>•</span>
+              <span>{selectedPlan.habitaciones} habitaciones</span>
+              <span>•</span>
+              <span>{selectedPlan.baños} baños</span>
+            </div>
+            <p className="text-gray-600 mb-6">{selectedPlan.descripcion}</p>
+            
+            <h3 className="font-semibold mb-3">Características incluidas:</h3>
+            <div className="grid md:grid-cols-2 gap-2 mb-6">
+              {selectedPlan.caracteristicas.map((car, idx) => (
+                <div key={idx} className="flex items-center">
+                  <Check className="h-5 w-5 text-green-500 mr-2" />
+                  <span>{car}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex items-center justify-between border-t pt-6">
+              <span className="text-4xl font-bold text-blue-600">{selectedPlan.precio}</span>
+              <div className="space-x-4">
+                <button 
+                  onClick={() => setSelectedPlan(null)}
+                  className="px-6 py-2 border border-gray-300 rounded-full hover:bg-gray-50 transition"
+                >
+                  Cerrar
+                </button>
+                <button className="bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition font-semibold">
+                  Comprar Ahora
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
