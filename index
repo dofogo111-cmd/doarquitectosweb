@@ -27,8 +27,8 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-24 pb-16 relative text-white">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero-background.jpg')"></div>
+    <section id="inicio" class="pt-24 pb-16 relative text-white" style="background-color: #10b981;">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero-background.jpg'); background-color: #10b981;"></div>
         <div class="absolute inset-0 bg-blue-900 bg-opacity-70"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
